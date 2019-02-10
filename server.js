@@ -139,7 +139,7 @@ app.get('/', function (req, res) {
   knex('images')
     .select('id', 'author', 'link')
     .then(function (imgs) {
-      res.render('./', { 'list': imgs, 'user': req.session.passport.user });
+      res.render('./', { 'list': imgs, 'user': req.user });
     })
 });
 

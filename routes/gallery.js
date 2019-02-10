@@ -45,7 +45,7 @@ router.route('/:id')
           .then(function (imageList) {
             if (image[0]) {
               image[0].user = req.session.passport.user;
-              res.render('gallery/image', { 'detail': image[0], 'list': imageList, 'user': req.session.passport.user });
+              res.render('gallery/image', { 'detail': image[0], 'list': imageList, 'user': req.user });
             } else {
               res.render('404');
             }
