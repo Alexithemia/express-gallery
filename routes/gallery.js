@@ -20,7 +20,7 @@ router.route('/')
           .from('images')
           .where('link', req.body.link)
           .then(function (image) {
-            res.redirect('gallery/' + image[0].id);
+            res.redirect(image[0].id);
           });
       })
       .catch(function () {
@@ -35,7 +35,7 @@ router.route('/new')
 
 router.route('/:id')
   .get(function (req, res) {
-    knex.select('author', 'link', 'description')
+    knex.select('author', 'link', 'description', 'id')
       .from('images')
       .where('id', req.params.id)
       .then(function (image) {
@@ -63,11 +63,10 @@ router.route('/:id')
           knex('images')
             .where('id', req.params.id)
             .update(imgObj)
-            .then(function (result) {
-              console.log(result);
-              res.redirect('/gallery/' + req.params.id);
+            .then(function () {
+              res.redirect(req.params.id);
             })
-            .catch(function (result) {
+            .catch(function () {
               res.status(400).redirect('gallery/edit');
             });
         } else {
@@ -92,7 +91,7 @@ router.route('/:id')
 
 router.route('/:id/edit')
   .get(isAuthenticated, function (req, res) {
-    knex.select('author', 'link', 'description')
+    knex.select('id', 'author', 'link', 'description')
       .from('images')
       .where('id', req.params.id)
       .then(function (image) {

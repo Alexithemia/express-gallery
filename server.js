@@ -138,6 +138,7 @@ app.use('/gallery', gallery);
 app.get('/', function (req, res) {
   knex('images')
     .select('id', 'author', 'link')
+    .orderBy('updated_at', 'desc')
     .then(function (imgs) {
       res.render('./', { 'list': imgs, 'user': req.user });
     })

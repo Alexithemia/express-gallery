@@ -105,14 +105,30 @@ body{
   }
 }
 
-.authContainer{
+.auth{
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: right;
+  a{
+    color: slategray;
+    margin-left: 1vw;
+    text-decoration: none;
+  }
+}
+
+.formContainer{
   display: flex;
   flex-flow: column nowrap;
-  align-self:center;
-  form{
-    margin-bottom: 1vw;
-  }
-  a{
-    text-decoration: none;
+  width: 70vw; 
+  align-self: center;
+  align-items: center;
+}
+
+.newForm{
+  width: 40vw;
+  display: flex;
+  flex-flow: column nowrap;
+  textarea{
+    resize: none;
   }
 }
