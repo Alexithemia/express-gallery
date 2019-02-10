@@ -1,9 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../database');
+const knex = require('../database/knex');
+const flash = require('connect-flash');
+
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { next(); }
+  else {
+    req.flash('info', 'You must be logged in to do that');
+    res.redirect('/login');
+  }
+}
 
 router.route('/')
-  .post(function (req, res) {
+  .post(isAuthenticated, function (req, res) {
     knex('images')
       .insert(req.body)
       .then(function () {
@@ -20,7 +29,7 @@ router.route('/')
   });
 
 router.route('/new')
-  .get(function (req, res) {
+  .get(isAuthenticated, function (req, res) {
     res.render('gallery/new')
   });
 
@@ -30,14 +39,20 @@ router.route('/:id')
       .from('images')
       .where('id', req.params.id)
       .then(function (image) {
-        if (image[0]) {
-          res.render('gallery/image', image[0]);
-        } else {
-          res.render('404');
-        }
+        knex.select('id', 'author', 'link')
+          .from('images')
+          .whereNot('id', req.params.id)
+          .then(function (imageList) {
+            if (image[0]) {
+              image[0].user = req.session.passport.user;
+              res.render('gallery/image', { 'detail': image[0], 'list': imageList, 'user': req.session.passport.user });
+            } else {
+              res.render('404');
+            }
+          });
       });
   })
-  .put(function (req, res) {
+  .put(isAuthenticated, function (req, res) {
     knex.select('author')
       .from('images')
       .where('id', req.params.id)
@@ -50,7 +65,6 @@ router.route('/:id')
             .update(imgObj)
             .then(function (result) {
               console.log(result);
-
               res.redirect('/gallery/' + req.params.id);
             })
             .catch(function (result) {
@@ -64,7 +78,7 @@ router.route('/:id')
         res.status(500).end('unknown server error');
       });
   })
-  .delete(function (req, res) {
+  .delete(isAuthenticated, function (req, res) {
     knex('images')
       .where('id', req.params.id)
       .del()
@@ -77,7 +91,7 @@ router.route('/:id')
   });
 
 router.route('/:id/edit')
-  .get(function (req, res) {
+  .get(isAuthenticated, function (req, res) {
     knex.select('author', 'link', 'description')
       .from('images')
       .where('id', req.params.id)

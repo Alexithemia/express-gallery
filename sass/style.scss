@@ -1,0 +1,118 @@
+header{
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: center;
+  align-items: center; 
+  width: 70vw;
+  height: 8vw;
+  margin-top: 3vw;
+  margin-bottom: 2vw;
+  border-top: 1px dashed grey;
+}
+
+.titleLink{
+  text-decoration: none;
+}
+
+.title{
+  height: 7vw;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 6vw;
+  color: darkslategray;
+  padding-right: 2vw;
+  border-right: 1px solid grey;
+}
+.mainDesc{
+  height: 7vw;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1vw;
+  color:grey;
+  padding-left: 2vw;
+}
+
+.auth{
+display: flex;
+flex-flow: row nowrap;
+width: 70vw;
+align-self: center;
+justify-content: flex-end;
+}
+
+body{
+  background-image: url('/assets/concrete-texture.png');
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+} 
+
+.imgBanner{
+  display: flex;
+  align-self: center;
+  width: 70vw;
+  padding-top: 1vw;
+  padding-bottom: 2vw;
+  border-bottom: 1px solid grey;
+}
+
+.gallery{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-self: center;
+  width: 70vw;
+  padding-top: 1vw;
+}
+
+.mainImg{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 22vw;
+  height: 17vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  img{
+    width: 22vw;
+    height: 16vw;
+  }
+
+  div{
+    font-size: 1vw;
+  }
+}
+
+.container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-self: center;
+  width: 70vw;
+}
+
+.imgDetail{
+  width: 45vw;
+
+  img{
+    width: 45vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+  }
+}
+
+.imgList{
+  width: 20vw;
+  img{
+    width: 20vw;
+  }
+}
+
+.authContainer{
+  display: flex;
+  flex-flow: column nowrap;
+  align-self:center;
+  form{
+    margin-bottom: 1vw;
+  }
+  a{
+    text-decoration: none;
+  }
+}

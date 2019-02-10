@@ -1,3 +1,23 @@
-<div>{{author}}</div>
-<img src="{{link}}" alt="">
-<div>{{description}}</div>
+<div class='auth'>
+  {{#if user}}
+  <form method='get' action="/logout">
+    <button>Logout</button>
+  </form>
+  {{else}}
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+  {{/if}}
+</div>
+<div class='container'>
+  <div class='imgDetail'>
+    <div>{{detail.author}}</div>
+    <img src="{{detail.link}}" alt="">
+    <div>{{detail.description}}</div>
+  </div>
+  <div class='imgList'>
+    {{#each list}}
+    <div>{{author}}</div>
+    <a href="/gallery/{{id}}"><img src="{{link}}" alt=""></a>
+    {{/each}}
+  </div>
+</div>

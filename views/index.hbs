@@ -1,5 +1,22 @@
-{{#each list}}
-<div>{{author}}</div>
-<a href='/gallery/{{id}}'><img src="{{link}}" alt=""></a>
-<div>{{description}}</div>
-{{/each}}
+<div class='auth'>
+  {{#if user}}
+  <form method='get' action="/logout">
+    <button>Logout</button>
+  </form>
+  {{else}}
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+  {{/if}}
+</div>
+<img class='imgBanner' src="https://valuedrafter.files.wordpress.com/2015/03/cropped-cropped-divination_mtg_bng_willmurai_9101.jpg"
+  alt="">
+<div class='gallery'>
+  {{#each list}}
+  <div class='mainImg'>
+    <a href='/gallery/{{id}}'>
+      <img src="{{link}}" alt="">
+    </a>
+    <div>{{author}}</div>
+  </div>
+  {{/each}}
+</div>
