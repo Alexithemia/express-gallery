@@ -28,8 +28,8 @@ app.use(session({
   store: new redis({ url: 'redis://redis-server:6379', logErrors: true }),
   secret: SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
-}))
+  saveUninitialized: false
+}));
 
 app.use(methodOverride('_method'));
 
@@ -86,7 +86,7 @@ passport.use(new LocalStrategy(function (username, password, done) {
 }));
 
 app.get('/register', function (req, res) {
-  res.render('auth/register')
+  res.render('auth/register');
 });
 
 app.post('/register', (req, res) => {
@@ -111,7 +111,7 @@ app.post('/register', (req, res) => {
 });
 
 app.get('/login', function (req, res) {
-  res.render('auth/login', { messages: req.flash('info') })
+  res.render('auth/login', { messages: req.flash('info') });
 });
 
 app.post('/login', passport.authenticate('local', {

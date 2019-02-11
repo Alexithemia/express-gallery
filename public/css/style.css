@@ -110,3 +110,43 @@ body {
   flex-flow: column nowrap; }
   .newForm textarea {
     resize: none; }
+
+@media only screen and (max-width: 600px) {
+  header {
+    height: 16vw;
+    justify-content: center;
+    border-top: none; }
+  .title {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 14vw;
+    color: darkslategray;
+    padding-right: 0;
+    border-right: none; }
+  .mainDesc {
+    display: none; }
+  .imgBanner {
+    width: 90vw; }
+  .gallery {
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-self: center;
+    width: 85vw;
+    padding-top: 1vw; }
+  .mainImg {
+    width: 85vw;
+    height: 64vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw; }
+    .mainImg img {
+      width: 85vw;
+      height: 60vw; }
+    .mainImg div {
+      font-size: 3vw; }
+  .container {
+    width: 85vw; }
+  .imgDetail {
+    width: 85vw; }
+    .imgDetail img {
+      width: 85vw; }
+  .imgList {
+    display: none; } }
