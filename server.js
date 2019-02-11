@@ -29,7 +29,6 @@ app.use(session({
   secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: ENV === 'production' }
 }))
 
 app.use(methodOverride('_method'));
