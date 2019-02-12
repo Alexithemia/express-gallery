@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../database/knex');
+const moment = require('moment');
 const flash = require('connect-flash');
 
 function isAuthenticated(req, res, next) {
@@ -13,6 +14,8 @@ function isAuthenticated(req, res, next) {
 
 router.route('/')
   .post(isAuthenticated, function (req, res) {
+    console.log(req.body);
+
     knex('images')
       .insert(req.body)
       .then(function () {
@@ -35,21 +38,25 @@ router.route('/new')
 
 router.route('/:id')
   .get(function (req, res) {
-    knex.select('author', 'link', 'description', 'id')
+    knex.select('author', 'link', 'description', 'id', 'created_at')
       .from('images')
       .where('id', req.params.id)
       .then(function (image) {
-        knex.select('id', 'author', 'link')
-          .from('images')
-          .whereNot('id', req.params.id)
-          .then(function (imageList) {
-            if (image[0]) {
+        if (image[0]) {
+          let date = moment(image[0].created_at)
+          let dateComponent = date.utc().format('YYYY-MM-DD');
+          let timeComponent = date.utc().format('HH:mm');
+          image[0].created_at = dateComponent + ' ' + timeComponent + ' UTC';
+          knex.select('id', 'author', 'link')
+            .from('images')
+            .whereNot('id', req.params.id)
+            .then(function (imageList) {
               image[0].user = req.session.passport.user;
               res.render('gallery/image', { 'detail': image[0], 'list': imageList, 'user': req.user });
-            } else {
-              res.render('404');
-            }
-          });
+            });
+        } else {
+          res.render('404');
+        }
       });
   })
   .put(isAuthenticated, function (req, res) {

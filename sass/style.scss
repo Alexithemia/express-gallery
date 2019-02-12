@@ -90,10 +90,13 @@ body{
 
 .imgDetail{
   width: 45vw;
-
   img{
     width: 45vw;
     margin-top: 1vw;
+  }
+  .createInfo{
+    color: grey;
+    font-size: 1vw;
     margin-bottom: 1vw;
   }
 }
@@ -122,6 +125,10 @@ body{
   width: 70vw; 
   align-self: center;
   align-items: center;
+  form{
+    display: flex;
+    flex-flow: column nowrap;
+  }
 }
 
 .newForm{

@@ -80,7 +80,10 @@ body {
   width: 45vw; }
   .imgDetail img {
     width: 45vw;
-    margin-top: 1vw;
+    margin-top: 1vw; }
+  .imgDetail .createInfo {
+    color: grey;
+    font-size: 1vw;
     margin-bottom: 1vw; }
 
 .imgList {
@@ -103,6 +106,9 @@ body {
   width: 70vw;
   align-self: center;
   align-items: center; }
+  .formContainer form {
+    display: flex;
+    flex-flow: column nowrap; }
 
 .newForm {
   width: 40vw;
