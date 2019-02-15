@@ -77,14 +77,11 @@ body {
   width: 70vw; }
 
 .imgDetail {
-  width: 45vw; }
+  width: 45vw;
+  margin-bottom: 1vw; }
   .imgDetail img {
     width: 45vw;
     margin-top: 1vw; }
-  .imgDetail .createInfo {
-    color: grey;
-    font-size: 1vw;
-    margin-bottom: 1vw; }
 
 .imgList {
   width: 20vw; }
@@ -106,9 +103,6 @@ body {
   width: 70vw;
   align-self: center;
   align-items: center; }
-  .formContainer form {
-    display: flex;
-    flex-flow: column nowrap; }
 
 .newForm {
   width: 40vw;
