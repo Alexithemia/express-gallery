@@ -1,0 +1,30 @@
+<div class='auth'>
+  {{#if user}}
+  <a class='logoutLink' href="/logout">Logout</a>
+  {{else}}
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+  {{/if}}
+</div>
+<div class='container'>
+  <div class='imgDetail'>
+    <div>{{detail.author}}</div>
+    <img src="{{detail.link}}" alt="">
+    <div>{{detail.description}}</div>
+    {{#if user}}
+    <form action="/gallery/{{detail.id}}/edit">
+      <button type="submit">Edit</button>
+    </form>
+    <form method='post' action="/gallery/{{detail.id}}?_method=DELETE">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Delete</button>
+    </form>
+    {{/if}}
+  </div>
+  <div class='imgList'>
+    {{#each list}}
+    <div>{{author}}</div>
+    <a href="/gallery/{{id}}"><img src="{{link}}" alt=""></a>
+    {{/each}}
+  </div>
+</div>

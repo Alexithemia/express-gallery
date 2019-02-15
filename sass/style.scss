@@ -1,0 +1,195 @@
+header{
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: center;
+  align-items: center; 
+  width: 70vw;
+  height: 8vw;
+  margin-top: 3vw;
+  margin-bottom: 2vw;
+  border-top: 1px dashed grey;
+}
+
+.titleLink{
+  text-decoration: none;
+}
+
+.title{
+  height: 7vw;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 6vw;
+  color: darkslategray;
+  padding-right: 2vw;
+  border-right: 1px solid grey;
+}
+.mainDesc{
+  height: 7vw;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1vw;
+  color:grey;
+  padding-left: 2vw;
+}
+
+.auth{
+display: flex;
+flex-flow: row nowrap;
+width: 70vw;
+align-self: center;
+justify-content: flex-end;
+}
+
+body{
+  background-image: url('/assets/concrete-texture.png');
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+} 
+
+.imgBanner{
+  display: flex;
+  align-self: center;
+  width: 70vw;
+  padding-top: 1vw;
+  padding-bottom: 2vw;
+  border-bottom: 1px solid grey;
+}
+
+.gallery{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-self: center;
+  width: 70vw;
+  padding-top: 1vw;
+}
+
+.mainImg{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 22vw;
+  height: 17vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  img{
+    width: 22vw;
+    height: 16vw;
+  }
+
+  div{
+    font-size: 1vw;
+  }
+}
+
+.container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-self: center;
+  width: 70vw;
+}
+
+.imgDetail{
+  width: 45vw;
+  margin-bottom: 1vw;
+  img{
+    width: 45vw;
+    margin-top: 1vw;
+  }
+}
+
+.imgList{
+  width: 20vw;
+  img{
+    width: 20vw;
+  }
+}
+
+.auth{
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: right;
+  a{
+    color: slategray;
+    margin-left: 1vw;
+    text-decoration: none;
+  }
+}
+
+.formContainer{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 70vw; 
+  align-self: center;
+  align-items: center;
+}
+
+.newForm{
+  width: 40vw;
+  display: flex;
+  flex-flow: column nowrap;
+  textarea{
+    resize: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  header{
+    height: 16vw;
+    justify-content: center;
+    border-top: none;
+  }
+
+  .title{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 14vw;
+    color: darkslategray;
+    padding-right: 0;
+    border-right: none;
+  }
+  .mainDesc{
+    display: none;
+  }
+
+  .imgBanner{
+    width: 90vw;
+  }
+
+  .gallery{
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-self: center;
+    width: 85vw;
+    padding-top: 1vw;
+  }
+
+  .mainImg{
+    width: 85vw;
+    height: 64vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    img{
+      width: 85vw;
+      height: 60vw;
+    }
+  
+    div{
+      font-size: 3vw;
+    }
+  }
+
+  .container{
+    width: 85vw;
+  }
+
+  .imgDetail{
+    width: 85vw;
+    img{
+      width: 85vw;
+    }
+  }
+
+  .imgList{
+    display: none;
+  }
+}

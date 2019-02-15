@@ -1,0 +1,17 @@
+<div class='auth'>
+  <a class='logoutLink' href="/logout">Logout</a>
+</div>
+
+<div class='formContainer'>
+  <h1>Edit Image {{id}} from Gallery</h1>
+  <form class='newForm' method='post' action="/gallery/{{id}}?_method=PUT">
+    <input type="hidden" name="_method" value="PUT">
+    Link to image:
+    <input type="text" name='link' value='{{link}}'>
+    Author of Image:
+    <input type="text" name='author' value='{{author}}'>
+    Description:
+    <textarea name="description" cols="30" rows="5">{{description}}</textarea>
+    <input type="submit">
+  </form>
+</div>
